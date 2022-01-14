@@ -10,19 +10,38 @@ knows and narrows down the list of suggestions
 
 ---
 
-![Screenshot of Wordle winning Wordle game with three guesses, TRAIN, LOUSE, and QUERY.](images/trainlousequery.png)
-Input your guesses like this,
-
+![Screenshot of Wordle winning Wordle game with three guesses, TRAIN, and LOUSE.](images/trainlouse.png)
 ---
 
+
+Input your guesses like this,
+
 ```
-wordlebrain> guess TRAIN nyynY
+wordlebrain> guess TRAIN nynnn
+wordlebrain> guess LOUSE nnyny
 ```
 
 Where:
 * `n` means letter not in word, 
 * `y` means letter in word somewhere, 
 * `Y` means letter in in word at this spot.  
+
+Wordlebrain will give a list of suggested guesses like this: 
+
+```
+wordlebrain> guess louse nnyny
+6457 CURED
+6394 PURED
+6228 MURED
+5475 MUREX
+5444 CUBER
+5438 PUCER
+5318 PUKER
+5309 BUYER
+5296 FUMER
+5236 DUPER
+...and 21 more.
+```
 
 To start a new game, or start over, type `reset`.
 
