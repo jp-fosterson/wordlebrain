@@ -242,14 +242,21 @@ def play():
     print(PLAY_INTRO)
     print(PLAY_USAGE)
     while(True):
-        argv = input('wordlebrain> ').split()
         try: 
+            argv = input('wordlebrain> ').split()
             if argv[0] in ['exit','quit']:
                 break
+            elif argv[0] == 'show':
+                if len(argv) > 1:
+                    N = int(argv[1])
+                    show(N)
             else:
                 globals()[argv[0]](*argv[1:])
-        except:
-            print(f"Sorry, I didn't understand '{' '.join(argv)}'.")
+        except EOFError:
+            break
+        except Exception as e:
+            print(e)
+            #print(f"Sorry, I didn't understand '{' '.join(argv)}'.")
             print()
             print(PLAY_USAGE)
 
