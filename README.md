@@ -1,4 +1,4 @@
-wordlebrain -- cheat at wordle
+wordlebrain: wordle helper tool
 ===============================
 
 Wordlebrain is a tool to help you find good guesses for the wordle
