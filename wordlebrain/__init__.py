@@ -93,14 +93,13 @@ def reset():
     _exclude = set()
     _require = set()
     _patterns = []
-    _frequencies = get_freqs(allwords)
     
 
 def show(limit=None):
     """
     Show all the words that fit the current contstraints.
     """
-    scored = [(scoreword(w,_frequencies),w) for w in words]
+    scored = [(scoreword(w,get_freqs(words)),w) for w in words]
     scored.sort(reverse=True)
     if len(scored) == 0:
         print("No suggestions.  Did you forget to reset?")
@@ -159,8 +158,8 @@ def get_freqs(words):
 
 def scoreword(w,freqs):
     pos_score = sum(freqs[i][c] for i,c in enumerate(w))
-    uniq_score = len(set(c for c in w))/5
-    return int(pos_score * uniq_score)
+    uniq_score = len(set(c for c in w))
+    return pos_score * uniq_score
         
 USAGE = """
 guess(word,hint)
