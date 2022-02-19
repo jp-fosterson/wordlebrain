@@ -152,12 +152,17 @@ To be shown as a suggestion, words must
 Guessing Strategy
 -----------------
 
-Wordlebrain can help in both easy mode and hard mode of Wordle.
+__First Guess__: There are many strategies for choosing opening words for Wordle. However, you're using `wordlebrain`, I recommend guessing `CARES` as the first guess.  By Wordlebrain's scoring formula that is the highest scoring word in the word bank, and by experience it seems to eliminate the largest number of options.   Several other first guess options also work well: 'ADIEU' (vowels), 'CARET', 'RAISE', 'TRAIN', however my experience has been that `CARES` is the most consistent word for reducing the initial word set.
 
-### Easy mode
-
-In easy mode, when you can guess any word at any point in the game, I usually guess `TRAIN` and `LOUSE` as my first two guesses.  Those words cover ten of the most frequent letters, including all the vowels.   After that, I will usually follow the suggestions from wordlebrain.  Sometimes, if those two guesses didn't provide a lot of hints, I'll add `PYGMY`.  After those guesses, Wordlebrain sometimes gives me the right answer immediately.
-
-### Hard mode
-
-Hard mode is where wordlebrain excels.  In hard mode you must use the letters that you know are in the word on each guess.  This constraint prevents you from picking other letters just to eliminate them. Choosing `TRAIN`, then `LOUSE`, then `PYGMY` is impossible.  In hard mode I'll usually pick the top wordlebrain choice unless it is a really weird word that I don't believe the Wordle authors would be likely to use.  This strategy rapidly whittles down the available suggestions.
+__Second Guess and Later__:  My strategy for the second guess is to use the top recommended word, unless it seems like a less common word _and_ there is a high-scoring common word visible in the top 10 possibilities displayed.  Remember that while there are around 12,000 guessable words, only about 2,500 of those are eligible to be answers.  Strange words like `SLOPY` and `SOILY` are probably not answers.  If I get a list with `SOILY` at the top and `STONY` close behind, I might choose `STONY` instead in the hope that it might be the answer.  This strategy applies even more strongly after several guesses when the word list is small.  For example, if I get this list of possibilities,
+```
+140 STILB
+140 SPILT
+128 STILL
+124 SPILL
+120 SWILL
+120 SKILL
+120 SHILL
+116 STILT
+```
+I'd much rather choose any other word in the list than `STILB`.

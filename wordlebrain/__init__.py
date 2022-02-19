@@ -201,7 +201,7 @@ def guess(word,hint):
                 pattern += f'[^{letter}]'
                 require += letter
             else:
-                pattern += '.'
+                pattern += f'[^{letter}]'
                 temp_exclude += letter
         wordle(pattern=pattern, require=require, 
                exclude=[c for c in temp_exclude if (c not in _require) and (c not in require)])
@@ -236,10 +236,11 @@ commands:
  > showstate           -- show wordlebrain's internal state 
                           (for curious geeks)
 """
-        
+RECOMMEND = "New game.  Wordlebrain recommends starting with CARES."
 def play():
     print(PLAY_INTRO)
     print(PLAY_USAGE)
+    print(RECOMMEND)
     while(True):
         try: 
             argv = input('wordlebrain> ').split()
@@ -249,6 +250,9 @@ def play():
                 if len(argv) > 1:
                     N = int(argv[1])
                     show(N)
+            elif argv[0] == 'reset':
+                reset()
+                print(RECOMMEND)
             else:
                 globals()[argv[0]](*argv[1:])
         except EOFError:

@@ -4,7 +4,7 @@ README = open('README.md').read()
 
 setup(
     name='wordlebrain'
-    , version='1.1.0'
+    , version='1.1.1'
     , author='JP Fosterson'
     , author_email='jp.fosterson@gmail.com'
     , description=README.split('\n')[0]
